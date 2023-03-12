@@ -41,7 +41,7 @@ public class BebidaAzucarada extends Bebida {
     }
 
     @Override
-    public void calcularPrecioTodasLasBebidas() {
+    public double calcularPrecioTodasLasBebidas() {
         if (tienepromocion) {
             super.setPrecio(super.getPrecio() - (super.getPrecio() * 0.10));
         }

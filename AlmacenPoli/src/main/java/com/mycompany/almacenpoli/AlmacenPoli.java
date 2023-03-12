@@ -96,24 +96,16 @@ public class AlmacenPoli {
         switch (opcion) {
 
             case 1:
-                for (Bebida bebi : bebidas) {
-                    bebi.calcularPrecioTodasLasBebidas();
-                }
+                
 
                 break;
             case 2:
-                System.out.println("Inserte la marca para comprobar el precio de sus productos:");
-                String eleccion=lecturanombres.nextLine();
-                for (Bebida bebi : bebidas) {
-                bebi.calcularPrecioMarca(eleccion);
-                }
                 
                 
                 break;
 
             case 3:
-                estanteria1.calcularPrecio();
-                 estanteria2.calcularPrecio();
+                
                 
                 break;
                 

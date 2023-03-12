@@ -59,8 +59,8 @@ public abstract class Bebida {
         return "Bebida{" + "id=" + id + ", litros=" + litros + ", precio=" + precio + ", marca=" + marca + '}';
     }
    
-    public abstract void calcularPrecioTodasLasBebidas();
+    public abstract double calcularPrecioTodasLasBebidas();
     
-    public abstract void calcularPrecioMarca(String marca);
+    public abstract double calcularPrecioMarca(String marca);
     
 }
