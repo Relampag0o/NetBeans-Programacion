@@ -44,8 +44,9 @@ public class Estanteria {
             bebidas.add(bebida);
             this.capacidad--;
             // restamos uno a la capacidad porque estamos añadiendo una bebida..
-        }else
-        System.out.println("No hay más capacidad en la estantería seleccionada.");
+        } else {
+            System.out.println("No hay más capacidad en la estantería seleccionada.");
+        }
     }
 
     public void borrarBebida(Bebida bebida) {
@@ -55,18 +56,14 @@ public class Estanteria {
             System.out.println("El producto no se encuentra en esta estantería.");
         }
     }
-    public void calcularPrecio(){
-        double acum=0;
-        if (!bebidas.isEmpty()){
-        for (Bebida bebida : bebidas) {
-            if (bebida instanceof BebidaAzucarada){
-                System.out.println(((BebidaAzucarada) bebida).calcularprecioConPromocion());
-        }else
-                bebida.calcularPrecioTodasLasBebidas();
-    }
-        
-    }else
-            System.out.println("La estantería no tiene productos.");
+
+    public double calcularPrecio() {
+        double acum = 0;
+
+        for (int i = 0; i < bebidas.size(); i++) {
+            acum = acum + bebidas.get(i).getPrecio();
+        }
+        return acum;
     }
 
     @Override

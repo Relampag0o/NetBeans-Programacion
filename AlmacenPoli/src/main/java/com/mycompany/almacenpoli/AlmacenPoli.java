@@ -26,18 +26,19 @@ public class AlmacenPoli {
         return elegido;
     }
 
-    public void calcularPrecioEstanteria(LinkedList<Estanteria> estanterias, String idEstanteria) {
-        for (int i = 0; i < estanterias.size(); i++) {
-            if (estanterias.get(i).getId().equals(idEstanteria)) {
-                estanterias.get(i).calcularPrecio();
-
-            } else {
-                System.out.println("La estantería proporcionada no es correcta.");
-            }
-
+    public static void calcularPrecioEstanteria(LinkedList<Estanteria>estanterias,String id){
+        double precio=0;
+        
+        for (int i=0; i<estanterias.size(); i++){
+            if (estanterias.get(i).getId().equals(id))
+               precio= estanterias.get(i).calcularPrecio();
+            System.out.println(precio);
+            break;
         }
+            
     }
-
+                
+    
     public static void main(String[] args) {
         Scanner lecturanombres = new Scanner(System.in);
         Scanner lecturanumeros = new Scanner(System.in);
@@ -84,7 +85,7 @@ public class AlmacenPoli {
         estanteria1.aniadirBebida(aguamineral1);
         estanteria1.aniadirBebida(aguamineral2);
         
-
+        do{
         System.out.println("--Bienvenido al menú de opciones--");
         System.out.println("Pulse 1 para calcular el precio de todas las bebidas del almacén");
         System.out.println("Pulse 2 para calcular el precio según una marca");
@@ -96,20 +97,29 @@ public class AlmacenPoli {
         switch (opcion) {
 
             case 1:
-                
+                for (Bebida bebi : bebidas) {
+                    System.out.println(bebi.calcularPrecioTodasLasBebidas() + "€");
+                }
 
                 break;
             case 2:
-                
+                System.out.println("Inserte el nombre de la marca: ");
+                String nombremarca=lecturanombres.nextLine();
+                for (Bebida bebi : bebidas)
+                    System.out.println(bebi.calcularPrecioMarca(nombremarca)+ "€");
                 
                 break;
 
             case 3:
+                System.out.println("Inserte el id de la estanteria para calcular su precio total: ");
+                String idEstanteria=lecturanombres.nextLine();
+                calcularPrecioEstanteria(estanterias, idEstanteria);
                 
                 
                 break;
                 
         }
 
-    }
+    }while(opcion!=0);
+}
 }

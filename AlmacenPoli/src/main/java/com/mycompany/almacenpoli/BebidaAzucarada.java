@@ -45,26 +45,26 @@ public class BebidaAzucarada extends Bebida {
         if (tienepromocion) {
             super.setPrecio(super.getPrecio() - (super.getPrecio() * 0.10));
         }
-        System.out.println(super.getPrecio() + "€");
+        return super.getPrecio();
     }
-
+    // sigo teniendo la misma duda que con la clase anterior..
+    // se calcula el precio total pero si quisiese ir calculando 
+    // su precio unitario, no veo la forma de hacerlo sin que
+    // devuelva un null o un 0 cuando encuentre un producto
+    // que no sea de esa marca indicada.
     @Override
-    public void calcularPrecioMarca(String marca) {
+    public double calcularPrecioMarca(String marca) {
+        double preciototal=0;
         if (super.getMarca().equals(marca)) {
             if (tienepromocion) {
                 super.setPrecio(super.getPrecio() - (super.getPrecio() * 0.10));
-                System.out.println(super.getPrecio());
+                preciototal=preciototal+super.getPrecio();
             }else
-                System.out.println(super.getPrecio());
+                preciototal=preciototal+super.getPrecio();
         }
+        return preciototal;
     }
 
-    public double calcularprecioConPromocion(){
-        if (tienepromocion){
-            super.setPrecio(super.getPrecio() - (super.getPrecio() * 0.10));
-         
-        }
-            return super.getPrecio();
-    }
+    
     
 }
